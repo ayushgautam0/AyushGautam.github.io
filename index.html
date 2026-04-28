@@ -7,10 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Animated Gradient Background -->
-    <div class="bg-animation">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
+    <!-- The Custom Glowing Cursor -->
+    <div id="cursor-glow"></div>
+
+    <!-- Animated Ambient Background -->
+    <div class="ambient-bg">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
     </div>
 
     <!-- Navigation -->
@@ -25,7 +29,7 @@
 
     <!-- Hero Section -->
     <header class="hero">
-        <div class="hero-content glass-panel fade-in">
+        <div class="hero-content glass-3d fade-in">
             <h1>Hi, I'm <span class="accent">Aayush Gautam</span></h1>
             <p class="subtitle">Computer Science Engineering Student</p>
             <a href="#projects" class="btn">Explore My Work</a>
@@ -34,7 +38,7 @@
 
     <!-- About Section -->
     <section id="about" class="container">
-        <div class="glass-card slide-up delay-1">
+        <div class="glass-3d slide-up delay-1">
             <h2>About Me</h2>
             <p>I am a first-year Computer Science engineering student with a deep passion for programming, problem-solving, and understanding how technology works under the hood. My current focus is on mastering core languages like C, C++, and Python, while navigating and customizing Linux-based environments. I enjoy bridging the gap between software logic and real-world hardware, constantly pushing myself to learn new tools and build clean, efficient systems.</p>
         </div>
@@ -44,14 +48,14 @@
     <section id="skills" class="container">
         <h2 class="section-title fade-in delay-2">Core Arsenal</h2>
         <div class="skills-grid slide-up delay-2">
-            <div class="skill-glass">C Programming</div>
-            <div class="skill-glass">C++</div>
-            <div class="skill-glass">Python</div>
-            <div class="skill-glass">Linux Environment</div>
-            <div class="skill-glass">Arduino</div>
-            <div class="skill-glass">Circuit Design</div>
-            <div class="skill-glass">Hardware Prototyping</div>
-            <div class="skill-glass">Problem Solving</div>
+            <div class="skill-pill">C Programming</div>
+            <div class="skill-pill">C++</div>
+            <div class="skill-pill">Python</div>
+            <div class="skill-pill">Linux Environment</div>
+            <div class="skill-pill">Arduino</div>
+            <div class="skill-pill">Circuit Design</div>
+            <div class="skill-pill">Hardware Prototyping</div>
+            <div class="skill-pill">Problem Solving</div>
         </div>
     </section>
 
@@ -59,11 +63,11 @@
     <section id="projects" class="container">
         <h2 class="section-title fade-in">Flagship Projects</h2>
         <div class="project-grid">
-            <div class="glass-card project-card hover-lift">
+            <div class="glass-3d project-card">
                 <h3>Arduino Fire-Fighting Robot</h3>
                 <p>Built an autonomous robotic car using an Arduino microcontroller and flame sensors. Programmed the system to detect heat sources, navigate toward them, and automatically trigger an onboard water pump to extinguish the fire.</p>
             </div>
-            <div class="glass-card project-card hover-lift">
+            <div class="glass-3d project-card">
                 <h3>Laser Perimeter Security</h3>
                 <p>Designed and assembled a real-time hardware security alarm using laser diode modules and LDRs. Configured the analog circuitry to instantly trigger an alert whenever the continuous laser line-of-sight is broken.</p>
             </div>
@@ -74,5 +78,16 @@
     <footer class="glass-footer">
         <p>© 2026 Aayush Gautam. Engineering the Future.</p>
     </footer>
+
+    <!-- JavaScript for the Custom Glowing Cursor -->
+    <script>
+        const cursor = document.getElementById('cursor-glow');
+        
+        document.addEventListener('mousemove', (e) => {
+            // Smoothly move the glow to the mouse position
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+    </script>
 </body>
 </html>
