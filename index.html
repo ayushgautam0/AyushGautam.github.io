@@ -7,18 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- The Custom Glowing Cursor -->
+    <!-- The Groovy Cursor -->
+    <div id="cursor-dot"></div>
     <div id="cursor-glow"></div>
 
-    <!-- Animated Ambient Background -->
-    <div class="ambient-bg">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
+    <!-- Floating 3D Background Objects -->
+    <div class="background-scene">
+        <div class="cube cube-1"></div>
+        <div class="cube cube-2"></div>
+        <div class="sphere sphere-1"></div>
+        <div class="sphere sphere-2"></div>
     </div>
 
     <!-- Navigation -->
-    <nav class="glass-nav">
+    <nav class="neon-nav">
         <div class="logo">Aayush<span class="accent">.</span>Gautam</div>
         <ul>
             <li><a href="#about">About</a></li>
@@ -29,8 +31,8 @@
 
     <!-- Hero Section -->
     <header class="hero">
-        <div class="hero-content glass-3d fade-in">
-            <h1>Hi, I'm <span class="accent">Aayush Gautam</span></h1>
+        <div class="hero-content tilt-card fade-in">
+            <h1>Hi, I'm <span class="accent glow-text">Aayush Gautam</span></h1>
             <p class="subtitle">Computer Science Engineering Student</p>
             <a href="#projects" class="btn">Explore My Work</a>
         </div>
@@ -38,7 +40,7 @@
 
     <!-- About Section -->
     <section id="about" class="container">
-        <div class="glass-3d slide-up delay-1">
+        <div class="neon-card tilt-card slide-up delay-1">
             <h2>About Me</h2>
             <p>I am a first-year Computer Science engineering student with a deep passion for programming, problem-solving, and understanding how technology works under the hood. My current focus is on mastering core languages like C, C++, and Python, while navigating and customizing Linux-based environments. I enjoy bridging the gap between software logic and real-world hardware, constantly pushing myself to learn new tools and build clean, efficient systems.</p>
         </div>
@@ -63,11 +65,11 @@
     <section id="projects" class="container">
         <h2 class="section-title fade-in">Flagship Projects</h2>
         <div class="project-grid">
-            <div class="glass-3d project-card">
+            <div class="neon-card tilt-card project-card">
                 <h3>Arduino Fire-Fighting Robot</h3>
                 <p>Built an autonomous robotic car using an Arduino microcontroller and flame sensors. Programmed the system to detect heat sources, navigate toward them, and automatically trigger an onboard water pump to extinguish the fire.</p>
             </div>
-            <div class="glass-3d project-card">
+            <div class="neon-card tilt-card project-card">
                 <h3>Laser Perimeter Security</h3>
                 <p>Designed and assembled a real-time hardware security alarm using laser diode modules and LDRs. Configured the analog circuitry to instantly trigger an alert whenever the continuous laser line-of-sight is broken.</p>
             </div>
@@ -75,18 +77,61 @@
     </section>
 
     <!-- Footer -->
-    <footer class="glass-footer">
-        <p>© 2026 Aayush Gautam. Engineering the Future.</p>
+    <footer>
+        <p>© 2026 Aayush Gautam. Built in the 3rd Dimension.</p>
     </footer>
 
-    <!-- JavaScript for the Custom Glowing Cursor -->
+    <!-- JavaScript for 3D Tilt and Groovy Cursor -->
     <script>
-        const cursor = document.getElementById('cursor-glow');
+        // 1. Groovy Cursor Logic
+        const cursorDot = document.getElementById('cursor-dot');
+        const cursorGlow = document.getElementById('cursor-glow');
         
+        let mouseX = 0, mouseY = 0;
+        let glowX = 0, glowY = 0;
+
         document.addEventListener('mousemove', (e) => {
-            // Smoothly move the glow to the mouse position
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Dot follows instantly
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
+        });
+
+        // Glow follows with a smooth delay (groovy effect)
+        function animateGlow() {
+            glowX += (mouseX - glowX) * 0.1;
+            glowY += (mouseY - glowY) * 0.1;
+            cursorGlow.style.left = glowX + 'px';
+            cursorGlow.style.top = glowY + 'px';
+            requestAnimationFrame(animateGlow);
+        }
+        animateGlow();
+
+        // 2. 3D Tilt Effect for Cards
+        const cards = document.querySelectorAll('.tilt-card');
+        
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                // Calculate rotation based on mouse position
+                const rotateX = ((y - centerY) / centerY) * -15; // Max 15 degree tilt
+                const rotateY = ((x - centerX) / centerX) * 15;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                // Reset card when mouse leaves
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+            });
         });
     </script>
 </body>
