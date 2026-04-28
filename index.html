@@ -7,10 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="stars"></div>
-    
-    <nav>
-        <div class="logo">Aayush.Gautam</div>
+    <!-- Animated Gradient Background -->
+    <div class="bg-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="logo">Aayush<span class="accent">.</span>Gautam</div>
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -18,47 +23,56 @@
         </ul>
     </nav>
 
+    <!-- Hero Section -->
     <header class="hero">
-        <h1 class="fade-in">Hi, I'm <span class="highlight">Aayush Gautam</span></h1>
-        <p class="fade-in delay-1">Computer Science Engineering Student | Hardware Enthusiast</p>
-        <a href="#projects" class="btn fade-in delay-2">Explore My Work</a>
+        <div class="hero-content glass-panel fade-in">
+            <h1>Hi, I'm <span class="accent">Aayush Gautam</span></h1>
+            <p class="subtitle">Computer Science Engineering Student</p>
+            <a href="#projects" class="btn">Explore My Work</a>
+        </div>
     </header>
 
-    <section id="about" class="container fade-in scroll-reveal">
-        <h2>About Me</h2>
-        <p>I am a first-year Computer Science engineering student with a deep passion for programming, problem-solving, and understanding how technology works under the hood. My current technical focus is on mastering C++ and exploring Linux-based environments. I am driven by a constant desire to learn new technologies, build a strong foundation in software development, and ultimately tackle complex, real-world challenges in the tech industry.</p>
-    </section>
-
-    <section id="skills" class="container fade-in scroll-reveal">
-        <h2>Core Arsenal</h2>
-        <div class="skills-grid">
-            <div class="skill-tag">C Programming</div>
-            <div class="skill-tag">C++</div>
-            <div class="skill-tag">Python</div>
-            <div class="skill-tag">Linux OS</div>
-            <div class="skill-tag">Arduino</div>
-            <div class="skill-tag">Circuit Design</div>
-            <div class="skill-tag">Hardware Prototyping</div>
-            <div class="skill-tag">Problem Solving</div>
+    <!-- About Section -->
+    <section id="about" class="container">
+        <div class="glass-card slide-up delay-1">
+            <h2>About Me</h2>
+            <p>I am a first-year Computer Science engineering student with a deep passion for programming, problem-solving, and understanding how technology works under the hood. My current focus is on mastering core languages like C, C++, and Python, while navigating and customizing Linux-based environments. I enjoy bridging the gap between software logic and real-world hardware, constantly pushing myself to learn new tools and build clean, efficient systems.</p>
         </div>
     </section>
 
-    <section id="projects" class="container fade-in scroll-reveal">
-        <h2>Flagship Projects</h2>
+    <!-- Skills Section -->
+    <section id="skills" class="container">
+        <h2 class="section-title fade-in delay-2">Core Arsenal</h2>
+        <div class="skills-grid slide-up delay-2">
+            <div class="skill-glass">C Programming</div>
+            <div class="skill-glass">C++</div>
+            <div class="skill-glass">Python</div>
+            <div class="skill-glass">Linux Environment</div>
+            <div class="skill-glass">Arduino</div>
+            <div class="skill-glass">Circuit Design</div>
+            <div class="skill-glass">Hardware Prototyping</div>
+            <div class="skill-glass">Problem Solving</div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container">
+        <h2 class="section-title fade-in">Flagship Projects</h2>
         <div class="project-grid">
-            <div class="project-card">
+            <div class="glass-card project-card hover-lift">
                 <h3>Arduino Fire-Fighting Robot</h3>
                 <p>Built an autonomous robotic car using an Arduino microcontroller and flame sensors. Programmed the system to detect heat sources, navigate toward them, and automatically trigger an onboard water pump to extinguish the fire.</p>
             </div>
-            <div class="project-card">
+            <div class="glass-card project-card hover-lift">
                 <h3>Laser Perimeter Security</h3>
                 <p>Designed and assembled a real-time hardware security alarm using laser diode modules and LDRs. Configured the analog circuitry to instantly trigger an alert whenever the continuous laser line-of-sight is broken.</p>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>© 2026 Aayush Gautam. Built with Code & Coffee.</p>
+    <!-- Footer -->
+    <footer class="glass-footer">
+        <p>© 2026 Aayush Gautam. Engineering the Future.</p>
     </footer>
 </body>
 </html>
